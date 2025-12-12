@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const message = document.getElementById('user-message').value;
 
             // Format phone number
-            const ownerPhone = '919302492158';
+            const ownerPhone = '918120803821';
 
             const formattedMessage = `*New Booking Request*\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Message:* ${message}`;
 
