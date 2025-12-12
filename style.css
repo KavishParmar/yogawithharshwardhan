@@ -1,0 +1,529 @@
+:root {
+    --bg-color: #0d1210;
+    --text-color: #e0e0e0;
+    --accent-color: #d4af37;
+    --accent-glow: rgba(212, 175, 55, 0.4);
+    --secondary-bg: #1a1f1d;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+    --transition: all 0.3s ease;
+    --cursor-size: 400px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.8;
+    overflow-x: hidden;
+    cursor: default;
+}
+
+/* --- Beam of Light Effect --- */
+#cursor-light {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    mix-blend-mode: overlay;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* --- Global Utilities --- */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.text-highlight,
+.highlight {
+    color: var(--accent-color);
+    font-style: italic;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 35px;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    color: #fff;
+    text-decoration: underline;
+    transition: var(--transition);
+}
+
+.btn-secondary:hover {
+    color: var(--accent-color);
+}
+
+/* --- Header --- */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    background: rgba(13, 18, 16, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #222;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-heading);
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-list a {
+    color: #aeaeae;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    color: var(--accent-color);
+}
+
+/* --- Hero Section (Home) --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-image: url('hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(13, 18, 16, 0.3), var(--bg-color));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: #ccc;
+    max-width: 600px;
+}
+
+/* --- Hero Small (Subpages) --- */
+.hero-small {
+    padding-top: 150px;
+    padding-bottom: 60px;
+    text-align: center;
+    background: linear-gradient(to bottom, #151a18, var(--bg-color));
+}
+
+.hero-small .hero-title {
+    font-size: 3.5rem;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- About Page & Section --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 500px;
+    background: #252b28;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #555;
+    border: 1px solid #333;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-placeholder.large-vertical {
+    height: 650px;
+    /* Taller for About Page */
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--accent-color);
+    z-index: -1;
+}
+
+.about-text-content p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: #ccc;
+}
+
+.credentials {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 30px;
+}
+
+.credential-item .count {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+}
+
+.credential-item .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+}
+
+.feature-box {
+    background: var(--secondary-bg);
+    padding: 30px;
+    border-left: 3px solid var(--accent-color);
+    margin-top: 30px;
+}
+
+.feature-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feature-box p {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+/* --- Therapies Page --- */
+.services-grid-home {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.service-card {
+    background: var(--secondary-bg);
+    padding: 40px;
+    border-radius: 4px;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.service-card .icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+/* Detailed Therapy Articles */
+.therapy-article {
+    background: var(--secondary-bg);
+    /* Card style */
+    margin-bottom: 40px;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #2a2f2d;
+}
+
+.therapy-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.therapy-header h2 {
+    margin-bottom: 0;
+    color: var(--accent-color);
+    font-size: 2rem;
+}
+
+.tag {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--accent-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.therapy-content p {
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.therapy-content strong {
+    color: #fff;
+}
+
+/* --- Why Yoga Page --- */
+.text-block {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stat-highlight {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    color: var(--accent-color);
+    text-align: center;
+    margin: 40px 0;
+    padding: 0 20px;
+    border-left: 0;
+    /* Override default blockquote styles if any */
+}
+
+.alt-bg {
+    background: var(--secondary-bg);
+    margin: 40px 0;
+}
+
+.benefits-detailed {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.benefits-detailed li {
+    margin-bottom: 40px;
+}
+
+.benefits-detailed h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* --- Contact Section --- */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    background: linear-gradient(45deg, var(--secondary-bg), var(--bg-color));
+    padding: 50px;
+    border-radius: 8px;
+}
+
+.contact-details li {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #444;
+    color: #fff;
+    font-family: var(--font-body);
+    outline: none;
+    transition: var(--transition);
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+}
+
+.footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #222;
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
+
+/* --- Animations --- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-small .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .about-grid,
+    .contact-wrapper,
+    .therapy-header {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .therapy-header h2 {
+        margin-bottom: 10px;
+    }
+
+    .header {
+        padding: 15px 0;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    /* Simplified mobile menu hiding */
+    .image-placeholder.large-vertical {
+        height: 400px;
+    }
+}
