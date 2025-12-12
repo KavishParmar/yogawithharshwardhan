@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://hsp-yoga.com/sitemap.xml
+Sitemap: https://kavishparmar.github.io/Harsh-Wardhan-Singh-Parmar-Yoga-Portafolio/sitemap.xml
