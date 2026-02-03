@@ -652,38 +652,159 @@ h4 {
     letter-spacing: 1px;
 }
 
-/* --- Responsive --- */
+/* --- Hamburger Menu Icon --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+    top: 9px;
+}
+
+.hamburger span:nth-child(3) {
+    top: 18px;
+}
+
+.hamburger.active span:nth-child(1) {
+    top: 9px;
+    transform: rotate(135deg);
+    background: var(--accent-color);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+}
+
+.hamburger.active span:nth-child(3) {
+    top: 9px;
+    transform: rotate(-135deg);
+    background: var(--accent-color);
+}
+
+/* --- Responsive & Mobile First --- */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
 
-    .hero-small .hero-title {
-        font-size: 2.5rem;
-    }
-
-    .about-grid,
-    .contact-wrapper,
-    .therapy-header {
-        grid-template-columns: 1fr;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .therapy-header h2 {
-        margin-bottom: 10px;
-    }
-
+    /* Menu & Header */
     .header {
         padding: 15px 0;
     }
 
-    .nav {
-        display: none;
+    .hamburger {
+        display: block;
     }
 
-    /* Simplified mobile menu hiding */
-    .image-placeholder.large-vertical {
-        height: 400px;
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(13, 18, 16, 0.98);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.4s ease-in-out;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav.active {
+        transform: translateX(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .nav-list a {
+        font-size: 1.5rem;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-small .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    /* Grids & Layouts */
+    .about-grid,
+    .contact-wrapper,
+    .therapy-header,
+    .therapy-grid {
+        grid-template-columns: 1fr;
+        display: grid;
+        gap: 30px;
+    }
+
+    .therapy-grid {
+        gap: 20px;
+    }
+
+    .therapy-header {
+        flex-direction: column;
+        align-items: flex-start;
+        display: flex;
+    }
+
+    .therapy-header h2 {
+        margin-bottom: 10px;
+        font-size: 1.8rem;
+    }
+
+    /* Images */
+    .image-placeholder.large-vertical,
+    .about-image-wrapper img {
+        height: 400px !important;
+    }
+
+    .therapy-img {
+        height: 250px;
+    }
+
+    /* General */
+    .section {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
     }
 }
